@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>見学コース ワイヤーフレーム | 鎌倉彫金工房</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif; color: #333; background: #fff; line-height: 1.8; max-width: 400px; margin: 0 auto; }
+  .page-wrapper { background: #fff; width: 400px; margin: 0 auto; }
+  .wireframe-label { background: #ff6b6b; color: #fff; text-align: center; padding: 8px; font-size: 12px; font-family: sans-serif; position: sticky; top: 0; z-index: 100; }
+  .placeholder-img { background: #d0d0d0; display: flex; align-items: center; justify-content: center; color: #888; font-size: 14px; font-family: sans-serif; }
+  .section-label { background: #e8f4fd; border-left: 4px solid #2196F3; padding: 4px 12px; font-size: 11px; font-family: sans-serif; color: #2196F3; margin-bottom: 8px; display: inline-block; }
+
+  /* Page Nav */
+  .page-nav { background: #f4f2ec; padding: 12px 0; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 32px; z-index: 99; }
+  .page-nav a { color: #666; text-decoration: none; font-size: 11px; margin: 0 6px; font-family: sans-serif; }
+  .page-nav a:hover { color: #a58f86; }
+
+  /* Common */
+  .container { max-width: 400px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 60px 0; border-bottom: 1px solid #eee; }
+  .section-title-en { font-size: 12px; color: #a58f86; letter-spacing: 2px; text-transform: uppercase; font-family: sans-serif; }
+  .section-title { font-size: 24px; margin: 4px 0 30px; font-weight: normal; }
+  .btn { display: inline-block; background: #a58f86; color: #fff; padding: 14px 40px; text-decoration: none; border-radius: 30px; font-size: 15px; font-family: sans-serif; margin-top: 20px; }
+  .btn:hover { background: #8a7670; }
+  .notes { font-size: 12px; color: #888; margin-top: 8px; }
+
+  /* FV */
+  .fv { position: relative; text-align: center; padding: 0; border-bottom: none; }
+  .fv .placeholder-img { width: 100%; height: 280px; font-size: 13px; }
+  .fv-content { padding: 40px 20px 60px; }
+  .fv-content h1 { font-size: 22px; font-weight: normal; margin-bottom: 16px; }
+  .fv-content .subtitle { font-size: 16px; line-height: 2; color: #555; margin-bottom: 8px; }
+  .fv-content .badge { display: inline-block; background: #f4f2ec; padding: 8px 24px; font-size: 14px; color: #a58f86; border-radius: 4px; margin-bottom: 16px; font-family: sans-serif; }
+
+  /* Feature */
+  .feature-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+  .feature-item { text-align: center; }
+  .feature-item .placeholder-img { width: 100%; height: 200px; margin-bottom: 16px; }
+  .feature-item h3 { font-size: 18px; margin-bottom: 12px; font-weight: normal; }
+  .feature-item p { font-size: 14px; color: #555; text-align: left; }
+
+  /* What you learn */
+  .learn-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .learn-card { border: 1px solid #ddd; padding: 20px; background: #fafafa; }
+  .learn-card h3 { font-size: 16px; margin-bottom: 8px; color: #a58f86; }
+  .learn-card p { font-size: 13px; color: #555; }
+  .learn-card .placeholder-img { width: 100%; height: 120px; margin-bottom: 12px; }
+
+  /* Info */
+  .info-section { background: #f9f7f3; }
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table dt { font-weight: bold; font-size: 14px; padding: 12px 0 4px; color: #a58f86; border-top: 1px solid #ddd; }
+  .info-table dd { font-size: 14px; padding: 4px 0 12px; }
+  .info-table dl:first-child dt { border-top: none; }
+
+  /* Flow */
+  .flow-steps { position: relative; }
+  .flow-step { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 30px; gap: 12px; }
+  .flow-step-number { background: #a58f86; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-family: sans-serif; flex-shrink: 0; }
+  .flow-step-img { flex-shrink: 0; }
+  .flow-step-img .placeholder-img { width: 100%; height: 110px; }
+  .flow-step-img { width: 100%; }
+  .flow-step-content h3 { font-size: 16px; margin-bottom: 4px; }
+  .flow-step-content .time { font-size: 12px; color: #a58f86; font-family: sans-serif; margin-bottom: 4px; }
+  .flow-step-content p { font-size: 13px; color: #555; }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid #ddd; padding: 20px 0; }
+  .faq-item dt { font-size: 15px; padding-left: 30px; position: relative; margin-bottom: 8px; }
+  .faq-item dt::before { content: "Q"; position: absolute; left: 0; color: #a58f86; font-family: sans-serif; font-weight: bold; }
+  .faq-item dd { font-size: 14px; color: #555; padding-left: 30px; position: relative; }
+  .faq-item dd::before { content: "A"; position: absolute; left: 0; color: #333; font-family: sans-serif; font-weight: bold; }
+
+  /* Related courses */
+  .related-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .related-item { text-align: center; }
+  .related-item .placeholder-img { width: 100%; height: 160px; margin-bottom: 8px; }
+  .related-item p { font-size: 13px; }
+
+  /* Fixed CTA */
+  .fixed-cta { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 400px; background: rgba(165, 143, 134, 0.95); padding: 12px 20px; text-align: center; z-index: 100; }
+  .fixed-cta a { color: #fff; text-decoration: none; font-size: 15px; font-family: sans-serif; }
+
+</style>
+</head>
+<body>
+
+<div class="wireframe-label">WIREFRAME - 見学コースページ ワイヤーフレーム（/course/kengaku/）</div>
+
+<!-- ============================== -->
+<!-- Section 1: ページ内ナビ -->
+<!-- ============================== -->
+<nav class="page-nav">
+  <a href="#top">TOP</a>
+  <a href="#feature">特徴</a>
+  <a href="#learn">見学でわかること</a>
+  <a href="#info">概要</a>
+  <a href="#flow">流れ</a>
+  <a href="#aftercare">アフターケア</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<!-- ============================== -->
+<!-- Section 2: FV（ファーストビュー） -->
+<!-- ============================== -->
+<section class="fv" id="top">
+  <div class="placeholder-img" style="height: 450px;">
+    [写真] スタッフがサンプルリングを見せながらお客様にご説明しているシーン
+  </div>
+  <div class="fv-content">
+    <div class="section-label">FV - ファーストビュー</div>
+    <h1>結婚指輪・婚約指輪<br>ご見学＆デザイン相談</h1>
+    <p class="subtitle">
+      まずは見て、触れて、知ってほしい。<br>
+      おふたりの大切な指輪選びを、<br>
+      納得いくまでお手伝いします。
+    </p>
+    <p class="badge">見学無料 ／ 約1時間 ／ 完全予約制</p>
+    <br>
+    <a href="https://reserve.kamakura-chokin.com/reserves/add" class="btn">見学を予約する</a>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 3: 特徴（3つの理由） -->
+<!-- ============================== -->
+<section id="feature">
+  <div class="container">
+    <div class="section-label">特徴セクション - 3つの理由</div>
+    <p class="section-title-en">Features</p>
+    <h2 class="section-title">見学コースの3つの特徴</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature-item">
+        <div class="placeholder-img" style="height: 200px;">
+          [写真] サンプルリングを手に取っている様子
+        </div>
+        <h3>実物を見て、触れて選べる</h3>
+        <p>サンプルリングを実際に手に取り、素材の違い、デザインの印象、着け心地を体感できます。写真や画面では伝わらない質感を、ぜひご自身の目でお確かめください。</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="placeholder-img" style="height: 200px;">
+          [写真] 職人がお客様と相談している様子
+        </div>
+        <h3>経験豊富な職人に<br>何でも相談</h3>
+        <p>豊富な知識と経験を持つ職人が、デザインの選び方から価格のことまで、丁寧にご案内します。「まだ何も決まっていない」という方も大歓迎です。</p>
+      </div>
+
+      <div class="feature-item">
+        <div class="placeholder-img" style="height: 200px;">
+          [写真] 工房の落ち着いた雰囲気
+        </div>
+        <h3>無理な勧誘は一切なし</h3>
+        <p>見学は情報収集の場です。ご納得いただけるまで、何度でもご来店ください。当日にコースの予約をする必要はありません。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 4: 見学でわかること -->
+<!-- ============================== -->
+<section id="learn">
+  <div class="container">
+    <div class="section-label">見学でわかること - iPad資料の内容をダイジェスト</div>
+    <p class="section-title-en">What you'll learn</p>
+    <h2 class="section-title">見学でわかること</h2>
+
+    <div class="learn-grid">
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] 鍛造法の制作風景</div>
+        <h3>鎌倉彫金工房について</h3>
+        <p>「鍛造法」で1本の金属の棒から指輪を手作りします。鍛造法は金属を鍛えながら成形するため、密度が高く強度に優れた指輪に仕上がります。</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] 制作工程の様子</div>
+        <h3>制作の流れ</h3>
+        <p>選ぶ → 切る → 曲げる → 繋げる → 叩く → 磨く。6つのステップで指輪が完成する工程を、サンプルを交えてご説明します。</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] 素材・デザインのサンプル</div>
+        <h3>選べるデザイン</h3>
+        <p>素材（Pt900 / K18YG / K18PG / K18WG）、デザインタイプ（甲丸・平打・鎚目）、仕上げ（クリア・マット・ヘアライン）、オプション加工（ミルグレイン・ウェーブ・クロス等）の実物をご覧いただけます。</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] 誕生石・ダイヤモンドのサンプル</div>
+        <h3>誕生石・ダイヤモンド</h3>
+        <p>12ヶ月の誕生石、カラーダイヤモンド（ピンク・ブルー・ブラック等）の実物をご覧いただけます。婚約指輪をお考えの方には、ダイヤモンドのグレード（4C）についてもご説明します。</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] 料金シミュレーション画面</div>
+        <h3>料金の目安</h3>
+        <p>素材やデザインに応じた価格感をご案内します。WEBの料金シミュレーションもご利用いただけます。ご予算に合わせたご提案も可能です。</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="placeholder-img">[写真] オリジナルアイテム</div>
+        <h3>オリジナルアイテム</h3>
+        <p>鎌倉彫金工房オリジナルの婚姻届（¥1,500）、巾着（各¥550）、リングケース（¥3,300〜）もご紹介します。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 5: コース概要 -->
+<!-- ============================== -->
+<section id="info" class="info-section">
+  <div class="container">
+    <div class="section-label">コース概要 - Information</div>
+    <p class="section-title-en">Information</p>
+    <h2 class="section-title">見学コースの概要</h2>
+
+    <div class="info-table">
+      <dl>
+        <dt>内容</dt>
+        <dd>結婚指輪・婚約指輪のサンプルリング閲覧、デザイン相談、制作工程のご説明、料金のご案内</dd>
+      </dl>
+      <dl>
+        <dt>所要時間</dt>
+        <dd>約1時間</dd>
+      </dl>
+      <dl>
+        <dt>料金</dt>
+        <dd>無料</dd>
+      </dl>
+      <dl>
+        <dt>対象</dt>
+        <dd>結婚指輪・婚約指輪の制作をご検討中のお客様</dd>
+      </dl>
+      <dl>
+        <dt>時間帯</dt>
+        <dd>
+          鎌倉本店：10:00 ／ 11:00 ／ 13:00 ／ 14:00 ／ 15:00 ／ 16:00<br>
+          横浜元町店・大阪中崎町店：10:30 ／ 11:30 ／ 14:30 ／ 15:30 ／ 16:30
+        </dd>
+      </dl>
+      <dl>
+        <dt>ご予約</dt>
+        <dd>24時間365日受付可能な下記ご予約フォームから（完全ご予約制）</dd>
+      </dl>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://reserve.kamakura-chokin.com/reserves/add" class="btn">空席確認・ご予約</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 6: 見学の流れ -->
+<!-- ============================== -->
+<section id="flow">
+  <div class="container">
+    <div class="section-label">見学の流れ - Flow（5ステップ）</div>
+    <p class="section-title-en">Flow</p>
+    <h2 class="section-title">見学の流れ</h2>
+
+    <div class="flow-steps">
+
+      <div class="flow-step">
+        <div class="flow-step-number">1</div>
+        <div class="flow-step-img">
+          <div class="placeholder-img" style="height: 110px;">[写真] 受付・ヒアリング</div>
+        </div>
+        <div class="flow-step-content">
+          <h3>ご来店・ヒアリング</h3>
+          <p class="time">約10分</p>
+          <p>おふたりのご要望やイメージをお伺いします。「まだ何も決まっていない」という方もご安心ください。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-number">2</div>
+        <div class="flow-step-img">
+          <div class="placeholder-img" style="height: 110px;">[写真] サンプルリングを見せている様子</div>
+        </div>
+        <div class="flow-step-content">
+          <h3>リングのご案内</h3>
+          <p class="time">約20分</p>
+          <p>素材（プラチナ・ゴールド）、デザインタイプ（甲丸・平打・鎚目）、仕上げ（クリア・マット・ヘアライン）の違いを、実物のサンプルリングで比較していただけます。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-number">3</div>
+        <div class="flow-step-img">
+          <div class="placeholder-img" style="height: 110px;">[写真] 制作工程の説明</div>
+        </div>
+        <div class="flow-step-content">
+          <h3>制作工程のご説明</h3>
+          <p class="time">約10分</p>
+          <p>鍛造法による指輪制作の流れをご紹介します。「選ぶ→切る→曲げる→繋げる→叩く→磨く」の6ステップで、どなたでも美しい指輪が作れます。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-number">4</div>
+        <div class="flow-step-img">
+          <div class="placeholder-img" style="height: 110px;">[写真] 料金・オプション説明</div>
+        </div>
+        <div class="flow-step-content">
+          <h3>料金・オプションのご案内</h3>
+          <p class="time">約15分</p>
+          <p>デザインに応じた価格感をお伝えします。誕生石やカラーダイヤモンドの埋め込み、ミルグレインなどのオプション加工についてもご案内します。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-number">5</div>
+        <div class="flow-step-img">
+          <div class="placeholder-img" style="height: 110px;">[写真] 質問・相談の様子</div>
+        </div>
+        <div class="flow-step-content">
+          <h3>ご質問・ご相談</h3>
+          <p class="time">約5分</p>
+          <p>気になることは何でもお気軽にご質問ください。見学後、その場で制作コースのご予約も可能です。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 7: アフターケア -->
+<!-- ============================== -->
+<section id="aftercare">
+  <div class="container">
+    <div class="section-label">アフターケア - 既存コースページと同じ構成</div>
+    <p class="section-title-en">Aftercare</p>
+    <h2 class="section-title">永久保証</h2>
+    <p style="text-align: center; margin-bottom: 30px; font-size: 14px; color: #555;">
+      一生をともにする指輪であってほしいから、<br>
+      鎌倉彫金工房の結婚指輪・婚約指輪は永久保証です。
+    </p>
+
+    <div style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px;">
+      <div style="text-align: center; min-width: 160px;">
+        <div class="placeholder-img" style="width: 160px; height: 120px;">[写真]</div>
+        <p style="font-size: 14px; margin-top: 8px; font-weight: bold;">仕上げ直し</p>
+        <p style="font-size: 12px; color: #555;">キズ、変色などを取り除き、お作りいただいた時の状態に</p>
+      </div>
+      <div style="text-align: center; min-width: 160px;">
+        <div class="placeholder-img" style="width: 160px; height: 120px;">[写真]</div>
+        <p style="font-size: 14px; margin-top: 8px; font-weight: bold;">サイズ調整</p>
+        <p style="font-size: 12px; color: #555;">指輪のサイズを小さくしたり大きくしたり</p>
+      </div>
+      <div style="text-align: center; min-width: 160px;">
+        <div class="placeholder-img" style="width: 160px; height: 120px;">[写真]</div>
+        <p style="font-size: 14px; margin-top: 8px; font-weight: bold;">変形直し</p>
+        <p style="font-size: 12px; color: #555;">ゆがんでしまった指輪を真円に</p>
+      </div>
+      <div style="text-align: center; min-width: 160px;">
+        <div class="placeholder-img" style="width: 160px; height: 120px;">[写真]</div>
+        <p style="font-size: 14px; margin-top: 8px; font-weight: bold;">クリーニング</p>
+        <p style="font-size: 12px; color: #555;">無料で細かな傷・汚れの除去</p>
+      </div>
+      <div style="text-align: center; min-width: 160px;">
+        <div class="placeholder-img" style="width: 160px; height: 120px;">[写真]</div>
+        <p style="font-size: 14px; margin-top: 8px; font-weight: bold;">石の留め直し・追加</p>
+        <p style="font-size: 12px; color: #555;">宝石の緩みチェック、追加セッティング</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 8: FAQ -->
+<!-- ============================== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">FAQ - よくある質問</div>
+    <p class="section-title-en">FAQ</p>
+    <h2 class="section-title">よくある質問</h2>
+
+    <div>
+      <dl class="faq-item">
+        <dt>見学だけでも大丈夫ですか？</dt>
+        <dd>はい、見学のみのご来店も大歓迎です。無理な勧誘は一切いたしません。ご納得いただけるまで、何度でもお越しください。</dd>
+      </dl>
+      <dl class="faq-item">
+        <dt>見学に必要な持ち物はありますか？</dt>
+        <dd>特にございません。お気軽にお越しください。</dd>
+      </dl>
+      <dl class="faq-item">
+        <dt>一人でも見学できますか？</dt>
+        <dd>もちろんです。おひとりでもお気軽にご来店ください。</dd>
+      </dl>
+      <dl class="faq-item">
+        <dt>見学後、その場で制作コースの予約はできますか？</dt>
+        <dd>はい、空き状況を確認のうえ、その場でご予約いただけます。</dd>
+      </dl>
+      <dl class="faq-item">
+        <dt>所要時間はどのくらいですか？</dt>
+        <dd>約1時間です。おふたりのご要望に合わせて、丁寧にご案内いたします。</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- Section 9: 関連コース提案 -->
+<!-- ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">関連コース提案</div>
+    <p class="section-title-en">Related courses</p>
+    <h2 class="section-title">制作コースのご案内</h2>
+
+    <div class="related-grid">
+      <div class="related-item">
+        <div class="placeholder-img" style="height: 160px;">[写真] 結婚指輪</div>
+        <p>手作り結婚指輪コース</p>
+        <a href="/course/marriage/" style="font-size: 13px; color: #a58f86;">MORE →</a>
+      </div>
+      <div class="related-item">
+        <div class="placeholder-img" style="height: 160px;">[写真] 婚約指輪</div>
+        <p>手作り婚約指輪コース</p>
+        <a href="/course/engage/" style="font-size: 13px; color: #a58f86;">MORE →</a>
+      </div>
+      <div class="related-item">
+        <div class="placeholder-img" style="height: 160px;">[写真] 3本セット</div>
+        <p>結婚指輪・婚約指輪<br>3本制作コース</p>
+        <a href="/course/marriage-engagement/" style="font-size: 13px; color: #a58f86;">MORE →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- パンくずリスト -->
+<div style="padding: 20px; font-size: 12px; color: #888; font-family: sans-serif;">
+  <div class="container">
+    <a href="/" style="color: #888;">トップ</a> &gt;
+    <a href="/course/" style="color: #888;">コース一覧</a> &gt;
+    ご見学＆デザイン相談
+  </div>
+</div>
+
+<!-- ============================== -->
+<!-- 固定CTA -->
+<!-- ============================== -->
+<div class="fixed-cta">
+  <a href="https://reserve.kamakura-chokin.com/reserves/add">まずは見学から — 見学を予約する（無料）</a>
+</div>
+
+<!-- ページ下部の余白（固定CTAに隠れないように） -->
+<div style="height: 60px;"></div>
+
+</body>
+</html>
